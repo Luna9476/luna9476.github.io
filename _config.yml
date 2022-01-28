@@ -1,7 +1,7 @@
 # Site settings
 title: Luna's Blog
 SEOTitle: 陆蕾的博客 | Luna's Blog
-header-img: img/home-bg.jpg
+header-img: img/snowboard.jpeg
 email: luna9476@gmail.com
 description: "陆 . 🐱之使徒. 单板摔跤者 . 码农. 蕾。"
 keyword: ""
@@ -13,7 +13,7 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username:     肉包吃完再减肥
+weibo_username:     2429763980
 zhihu_username:     lu-lei-5
 github_username:    luna9476
 #facebook_username:  huxpro
@@ -70,14 +70,14 @@ netease_comment: false
 # ba_track_id: [your track id]
 
 # Google Analytics
-ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+ga_track_id: #'UA-49627206-1'            # Format: UA-xxxxxx-xx
+ga_domain: #huangxuan.me
 
 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "陆 · 🐱之使徒 · 🏂🏻摔跤者 · 💻 · 蕾 <br> Lu, Lei (Luna) <br> 🐱 🏂🏻 💻"
+sidebar-about-description: "陆 · 🐱之使徒 · 🏂🏻摔跤者 · 💻 · 蕾 <br> Lu, Lei (Luna) <br> 🇨🇳 ➡️ 🇨🇦  <br> 🐱 🏂🏻 💻"
 sidebar-avatar: https://github.com/Luna9476.png # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
