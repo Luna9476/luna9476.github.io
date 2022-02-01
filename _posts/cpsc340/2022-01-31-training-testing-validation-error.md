@@ -1,5 +1,5 @@
 ---
-title: Training Error VS Testing Error VS Validation Error
+title: CPSC340 Training Error VS Testing Error VS Validation Error
 layout: post
 tag: ["machine learning", "cpsc340", "ubc"]
 mathjax: true
