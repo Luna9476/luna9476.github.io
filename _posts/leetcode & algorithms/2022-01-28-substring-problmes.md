@@ -1,5 +1,5 @@
 ---
-title: Substring Problems in Leetcode
+title: Substring Problems in Leetcode - Sliding Window
 Author: Luna
 layout: post
 mathjax: true
@@ -9,10 +9,9 @@ tags: [algorithm, sliding window, leetcode]
 - [Contents](#contents)
   - [Some Sample Problems](#some-sample-problems)
     - [Leetcode 3: Find Longest Substring without Repeat Chars](#leetcode-3-find-longest-substring-without-repeat-chars)
+      - [Similar Problems with Leetcode 3](#similar-problems-with-leetcode-3)
     - [Leetcode 76: Minimum Window Substring](#leetcode-76-minimum-window-substring)
-    - [Leetcode 3: Longest Substring Without Repeating Characters](#leetcode-3-longest-substring-without-repeating-characters)
     - [Leetcode 30: Substring with Concatention of All Words](#leetcode-30-substring-with-concatention-of-all-words)
-    - [Leetcode 159: Longest Substring with At Most Two Distinct Characters](#leetcode-159-longest-substring-with-at-most-two-distinct-characters)
   - [Other Simple Problems](#other-simple-problems)
     - [Leetcode 567: Permutation in String](#leetcode-567-permutation-in-string)
     - [Leetcode 438: Find All Anagrams in a String](#leetcode-438-find-all-anagrams-in-a-string)
@@ -68,35 +67,37 @@ dict_t store the current substring characters,  move "start" pointer until s[sta
 ```python
 Class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        start = 0
-        end = 0
-        length = 0
         counter = 0
-
-        dict_t = {} # here we don't have a target, but we want all the values here to be 1
-
-        while end < len(s):
+        length = 0
+        dict_t = {}
+        
+        start = 0
+        
+        for end in range(len(s)):
             if s[end] in dict_t.keys():
                 dict_t[s[end]] += 1
                 if dict_t[s[end]] > 1:
-                    counter += 1 # invalid chars
+                    counter += 1
             else:
                 dict_t[s[end]] = 1
             
             while counter > 0:
                 if s[start] in dict_t.keys():
                     dict_t[s[start]] -= 1
-                    # after minus 1, the s[start] becomes a valid key, we should minus the counter
                     if dict_t[s[start]] == 1:
-                        counter -=1
+                        counter -= 1
                     start += 1
+            
             length = max(length, end-start+1)
-
-            end += 1
         
         return length
 
 ```
+
+#### Similar Problems with Leetcode 3
+
+- Leetcode 159: [Longest Substring with At Most Two Distinct Characters](https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/)
+- Leetcode 340: [Longest Substring with At Most K Distinct Characters](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/)
 
 ### Leetcode 76: Minimum Window Substring
 
@@ -145,11 +146,10 @@ Class Solution:
 
 ```
 
-### Leetcode 3: [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
 ### Leetcode 30: [Substring with Concatention of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words/)
 
-### Leetcode 159: [Longest Substring with At Most Two Distinct Characters](https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/)
+
 
 Thanks for the template summary by [leetcode 10-line template](https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems)
 
