@@ -14,3 +14,4 @@ node_modules
 vendor
 .bundle
 .jekyll-cache
+assets/images/emoji

@@ -1,7 +1,7 @@
 # Site settings
 title: Luna's Blog
 SEOTitle: 陆蕾的博客 | Luna's Blog
-header-img: img/snowboard.jpeg
+header-img: img/cat.jpeg
 email: luna9476@gmail.com
 description: "陆 . 🐱之使徒. 单板摔跤者 . 码农. 蕾。"
 keyword: ""
@@ -38,6 +38,8 @@ anchorjs: true                          # if you want to customize anchor. check
 # make sure you have this gem installed
 # `$ gem install jekyll-paginate`
 plugins: [jekyll-paginate]
+
+gems: [jemoji]
 
 
 

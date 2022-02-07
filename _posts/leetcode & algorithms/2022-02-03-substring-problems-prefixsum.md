@@ -101,6 +101,20 @@ class Solution:
 This is a problem of subarray product, however it's similar to the sum problem.\
 $res[i] = product[0:i] * product[i+1:len(nums)]$
 
+### Other Prefix-Sum Problems
+- [ ] [https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/](https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/)
+- [X] [https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/](https://leetcode.com/problems/maximum-size-subarray-sum-equals-k/)
+- [ ] [https://leetcode.com/problems/number-of-submatrices-that-sum-to-target/](https://leetcode.com/problems/number-of-submatrices-that-sum-to-target/)
+- [ ] [https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/](https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/)
+- [ ] [https://leetcode.com/problems/binary-subarrays-with-sum/](https://leetcode.com/problems/binary-subarrays-with-sum/)
+- [ ] [https://leetcode.com/problems/path-sum-iii/](https://leetcode.com/problems/path-sum-iii/)
+- [X] [https://leetcode.com/problems/subarray-sums-divisible-by-k/](https://leetcode.com/problems/subarray-sums-divisible-by-k/)
+- [ ] https://leetcode.com/problems/range-sum-query-2d-immutable/
+- [ ] https://leetcode.com/problems/count-number-of-nice-subarrays/
+- [ ] https://leetcode.com/problems/matrix-block-sum/
+
 
 ### References
 [Labuladong的算法小抄](https://labuladong.github.io/algo/2/21/56/)
+
+[https://leetcode.com/discuss/general-discussion/563022/prefix-sum-problems](https://leetcode.com/discuss/general-discussion/563022/prefix-sum-problems)
