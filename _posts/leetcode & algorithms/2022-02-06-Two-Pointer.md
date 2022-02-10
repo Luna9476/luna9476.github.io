@@ -154,3 +154,86 @@ Class Solution:
         
         return res
 ```
+
+#### Sum problems
+##### LeetCode 1: Two Sum
+> Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+> **You may assume that each input would have exactly one solution, and you may not use the same element twice.**
+
+This problem asks us to return the index of the number, so if we want to use two pointer to solve this problem, we should memorize the original index of each number before sorting.
+
+(We can use **HashTable** for this problem.)
+```python
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        numbers = [
+            (num, index)
+            for index, num in enumerate(nums)
+        ]
+
+        numbers.sort()
+        left, right = 0, len(numbers) - 1
+
+        while left < right:
+            curr_sum = numbers[left][0] + numbers[right][0]
+            if curr_sum == target:
+                return [numbers[left][1], number[right][1]]
+            elif curr_sum < target:
+                left += 1
+            else:
+                right -= 1
+```
+
+##### LeetCode 15: Three Sum
+> Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.\
+> **Notice that the solution set must not contain duplicate triplets.**\
+> Input: nums = [-1,0,1,2,-1,-4]\
+> Output: [[-1,-1,2],[-1,0,1]]
+
+One of the solutions is Two Pointer. We have a nested loop.
+The main loop, i goes from 0 to end of the array.
+In the inner loop, we use two pointer to translate the problem into a two-sum problem - nums[left] + nums[right] == -nums[i].
+
+One more thing we need to pay attention to is the duplicate numbers.
+We should directly skip the duplicate numbers.
+
+```python
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        def twoSum(nums:List[int], start: int, target: int) -> List[List[int]]:
+            left, right = start, len(nums)-1
+            while left < right:
+                curr_sum = nums[left] + nums[right]
+                if curr_sum == target:
+                    ans.append([nums[start-1],nums[left], nums[right]])
+                    left += 1
+                    # skip duplicate numbers
+                    while left < right and nums[left-1] == nums[left]:
+                        left +=1
+                    right -= 1
+                elif curr_sum < target:
+                    left += 1
+                else:
+                    right -= 1
+        
+        ans = []
+        nums.sort()
+        i = 0
+
+        # main loop
+        while i < len(nums):
+            # inner loop
+            twoSum(nums, i+1, -nums[i])
+            i += 1
+            # skip duplicate numbers
+            while i < len(nums) and nums[i-1] == nums[i]:
+                i+= 1
+        
+        return ans
+```
+
+Similar Problem: 
+- [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) -- this problem's nums are sorted, so it's more suitable to use two pointer for this problem.
+- [1099. Two Sum Less Than K](https://leetcode.com/problems/two-sum-less-than-k/)
+- 
+
