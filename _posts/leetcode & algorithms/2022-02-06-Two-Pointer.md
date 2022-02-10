@@ -5,18 +5,33 @@ layout: post
 mathjax: true
 tags: [algorithm, leetcode]
 ---
+
+- [Fast & Slow Pointers](#fast--slow-pointers)
+  - [Template](#template)
+  - [Sample Problems:](#sample-problems)
+    - [Leetcode 26 Remove Duplicates from Sorted Array](#leetcode-26-remove-duplicates-from-sorted-array)
+    - [Leetcode 80 Remove Duplicates from Sorted Array II](#leetcode-80-remove-duplicates-from-sorted-array-ii)
+    - [Leetcode 532 K-diff Pairs in an Array](#leetcode-532-k-diff-pairs-in-an-array)
+  - [Left & Right Pointers](#left--right-pointers)
+    - [Trap Water Problems](#trap-water-problems)
+      - [Leetcode 42 Trapping Rain Water](#leetcode-42-trapping-rain-water)
+    - [Sum problems](#sum-problems)
+      - [LeetCode 1: Two Sum](#leetcode-1-two-sum)
+      - [LeetCode 15: Three Sum](#leetcode-15-three-sum)
+      - [N-Sum](#n-sum)
+  
 There are 3 types of two-pointer algorithms.
 1. fast & slow pointers
 2. left & right pointers
 3. same interval pointers
 
-## Fast & Slow Pointers
+# Fast & Slow Pointers
 
 - Intialization: fast = 0, slow = 0
 - Move: fast moves faster than slow
 - Return: usually return the slow index
 
-### Template
+## Template
 ```python
 fast, slow = 0, 0
 while fast < len(nums): # not reach the end
@@ -26,8 +41,8 @@ while fast < len(nums): # not reach the end
     fast += 1
 ```
 
-### Sample Problems:
-#### Leetcode 26 [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
+## Sample Problems:
+### Leetcode 26 [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 
 > Given an nums array sorted in non-decreasing order, remove the duplicates in-place such that each elements appears only once.\
 > Example:\
@@ -49,7 +64,7 @@ class Solution:
 ```
 
 
-#### Leetcode 80 [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)
+### Leetcode 80 [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)
 > Given an nums array sorted in non-decreasing order, remove the duplicates in-place such that each elements appears only once.\
 > Example:\
 > Input: nums = [1,1,1,2,2,3]\
@@ -79,7 +94,7 @@ Class Solution:
 ```
 
 
-#### Leetcode 532 [K-diff Pairs in an Array](https://leetcode.com/problems/k-diff-pairs-in-an-array/)
+### Leetcode 532 [K-diff Pairs in an Array](https://leetcode.com/problems/k-diff-pairs-in-an-array/)
 
 >Given an array of integers nums and an integer k, return the number of unique k-diff pairs in the array.\
 > A k-diff pair is an integer pair (nums[i], nums[j]), where the following are true:\
@@ -119,7 +134,7 @@ class Solution:
 
 Initalize the left pointer with 0, right pointer with len(nums) - 1, move from the two sides into the center until they reach each other.
 
-### Sample Problems
+### Trap Water Problems
 #### Leetcode 42 [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/)
 water[i] = min(max_left, max_right) - height[i]
 
@@ -155,8 +170,8 @@ Class Solution:
         return res
 ```
 
-#### Sum problems
-##### LeetCode 1: Two Sum
+### Sum problems
+#### LeetCode 1: Two Sum
 > Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 > **You may assume that each input would have exactly one solution, and you may not use the same element twice.**
 
@@ -184,7 +199,7 @@ class Solution:
                 right -= 1
 ```
 
-##### LeetCode 15: Three Sum
+#### LeetCode 15: Three Sum
 > Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.\
 > **Notice that the solution set must not contain duplicate triplets.**\
 > Input: nums = [-1,0,1,2,-1,-4]\
@@ -231,9 +246,46 @@ class Solution:
         
         return ans
 ```
+#### N-Sum
+
+```python
+def fourSum(self, nums, target):
+    nums.sort()
+    results = []
+    self.findNsum(nums, target, 4, [], results)
+    return results
+
+def findNsum(self, nums: List[int], target: int, N: int, result: List[int], results: List[List[int]]) -> List[List[int]]:
+    if len(nums) < N or N < 2:
+        return
+    # two sum
+    if N == 2:
+        left, right = 0, len(nums) - 1
+        while left < right:
+            curr_sum = nums[left] + nums[right]
+            if curr_sum == target:
+                results.append(result + [nums[left]] + [nums[right]])
+                left += 1
+                right -= 1
+                while left < right and nums[left] == nums[left - 1]:
+                    left += 1
+                while left < right and nums[right] == nums[right + 1]:
+                    right -= 1
+            elif curr_sum < target:
+                left += 1
+            else:
+                right -= 1
+    else:
+        for i in range(0, len(nums)-N+1):
+            if target < nums[i] * N or target > nums[-1] * N:
+                break
+            if i == 0 or i != 0 and nums[i] != nums[i-1]:
+                self.findNsum(nums[i+1:], target - nums[i], N-1, result+[nums[i]], results)
+```
 
 Similar Problem: 
 - [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) -- this problem's nums are sorted, so it's more suitable to use two pointer for this problem.
 - [1099. Two Sum Less Than K](https://leetcode.com/problems/two-sum-less-than-k/)
-- 
+- [18. 4Sum](https://leetcode.com/problems/4sum/)
+
 
