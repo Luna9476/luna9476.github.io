@@ -15,6 +15,8 @@ tags: [algorithm, leetcode]
   - [Left & Right Pointers](#left--right-pointers)
     - [Trap Water Problems](#trap-water-problems)
       - [Leetcode 42 Trapping Rain Water](#leetcode-42-trapping-rain-water)
+      - [Leetcode 75 Sort Colors](#leetcode-75-sort-colors)
+      - [Leetcode 977 Squares of a Sorted Array](#leetcode-977-squares-of-a-sorted-array)
     - [Sum problems](#sum-problems)
       - [LeetCode 1: Two Sum](#leetcode-1-two-sum)
       - [LeetCode 15: Three Sum](#leetcode-15-three-sum)
@@ -170,6 +172,64 @@ Class Solution:
         return res
 ```
 
+#### Leetcode 75 [Sort Colors](https://leetcode.com/problems/sort-colors/)
+>Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+> We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
+
+This is a very classcical problem - [Dutch National Flag Problem](https://en.wikipedia.org/wiki/Dutch_national_flag_problem)
+
+We can initialize three pointers - left, mid, right. Our goal is to divide the array by these three pointers:
+- [0, left) all 0s
+- [left, mid] all 1s
+- [right, end] all 2s
+
+```python
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+
+        left, mid, right = 0, 0, len(nums) - 1
+
+        while mid <= right:
+            if nums[mid] == 2:
+                nums[mid], nums[right] = nums[right], nums[mid]
+                right -= 1 # here we don't right move mid, because we still need to check what is swapped to the mid position
+            elif nums[mid] == 0:
+                nums[mid], nums[left] = nums[left], nums[mid]
+                mid += 1 # here we need to move the mid pointer, since the number swapped to the mid position might also be 0
+                left += 1
+            else:
+                mid += 1
+```
+
+#### Leetcode 977 [Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
+
+> Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+
+> Input: nums = [-4,-1,0,3,10]\
+>Output: [0,1,9,16,100]\
+>Explanation: After squaring, the array becomes [16,1,0,9,100].\
+> After sorting, it becomes [0,1,9,16,100].
+
+Go from the start and end of the array (they must be larger than the middle numbers)
+
+```python
+class Solution:
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        res = [0] * n
+        left, right = 0, n - 1
+        
+        for i in range(n-1, -1, -1):
+            if abs(nums[left]) > abs(nums[right]):
+                res[i] = nums[left] ** 2
+                left += 1
+            else:
+                res[i] = nums[right] ** 2
+                right -= 1
+            
+        
+        return res
+```
 ### Sum problems
 #### LeetCode 1: Two Sum
 > Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
