@@ -15,8 +15,8 @@ tags: [algorithm, leetcode]
   - [Left & Right Pointers](#left--right-pointers)
     - [Trap Water Problems](#trap-water-problems)
       - [Leetcode 42 Trapping Rain Water](#leetcode-42-trapping-rain-water)
-      - [Leetcode 75 Sort Colors](#leetcode-75-sort-colors)
-      - [Leetcode 977 Squares of a Sorted Array](#leetcode-977-squares-of-a-sorted-array)
+    - [Leetcode 75 Sort Colors](#leetcode-75-sort-colors)
+    - [Leetcode 977 Squares of a Sorted Array](#leetcode-977-squares-of-a-sorted-array)
     - [Sum problems](#sum-problems)
       - [LeetCode 1: Two Sum](#leetcode-1-two-sum)
       - [LeetCode 15: Three Sum](#leetcode-15-three-sum)
@@ -172,7 +172,7 @@ Class Solution:
         return res
 ```
 
-#### Leetcode 75 [Sort Colors](https://leetcode.com/problems/sort-colors/)
+### Leetcode 75 [Sort Colors](https://leetcode.com/problems/sort-colors/)
 >Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
 > We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
 
@@ -201,7 +201,7 @@ class Solution:
                 mid += 1
 ```
 
-#### Leetcode 977 [Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
+### Leetcode 977 [Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
 
 > Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
 
