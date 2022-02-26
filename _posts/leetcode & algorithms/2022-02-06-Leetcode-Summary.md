@@ -46,11 +46,16 @@ tags: [algorithm, leetcode]
 
 | Title | Solution | Notes |
 | ----- | -------- | ----- |
-|[252. Meeting Rooms](https://leetcode.com/problems/meeting-rooms/)|[Solution](/2022/02/17/meeting-rooms/#252-meeting-rooms)|
-|[253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)|[Solution](/2022/02/17/meeting-rooms/#253-meeting-rooms-ii)|
+|[252. Meeting Rooms](https://leetcode.com/problems/meeting-rooms/)|[Solution](/2022/02/17/meeting-rooms/#252-meeting-rooms)||
+|[253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)|[Solution](/2022/02/17/meeting-rooms/#253-meeting-rooms-ii)||
 |[56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)|[Solution](/2022/02/17/meeting-rooms/#56-merge-intervals)||
 |[57. Insert Interval](https://leetcode.com/problems/insert-interval/)|[Solution](/2022/02/17/meeting-rooms/#57-insert-interval)||
 |[1094. Car Pooling](https://leetcode.com/problems/car-pooling/)|[Solution](/2022/02/17/meeting-rooms/#1094-car-pooling)||
+|[1272.Remove Intervals](https://leetcode.com/problems/remove-interval/)|[Solution](/2022/02/17/meeting-rooms/#1272remove-intervals)||
+|[435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)| [Sweep Line Solution](/2022/02/17/meeting-rooms/#435-non-overlapping-intervals) <br> [DP Solution]()||
+|[452. Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/)|[Solution](/2022/02/17/meeting-rooms/#452-minimum-number-of-arrows-to-burst-balloons)| Similar to the non-overlapping problem
+
+
 
 ​
  

@@ -148,3 +148,92 @@ class Solution:
         
         return True
 ```
+
+## [1272.Remove Intervals](https://leetcode.com/problems/remove-interval/)
+Given a sorted list of intervals and an interval toBeRemoved, return the set of real numbers with the interval toBeRemoved removed from intervals.
+
+Example:\
+Input: intervals = [[0,2],[3,4],[5,7]], toBeRemoved = [1,6]\
+Output: [[0,1],[6,7]]
+![](/img/leetcode/remove-interval.jpeg)
+
+If not overlap, add the current interval to res
+If overlapped, check whether interval[0] < toBeRemoved[0] and interval[1] > toBeRemoved[1]
+
+```python
+class Solution:
+    def removeInterval(self, intervals: List[List[int]], toBeRemoved: List[int]) -> List[List[int]]:
+        res = []
+        for start, end in intervals:
+            if toBeRemoved[1] < start or toBeRemoved[0] > end:
+                res.append(interval)
+            else:
+                if start < toBeRemoved[0]:
+                    res.append([start, toBeRemoved[0]])
+                if end > toBeRemoved[1]:
+                    res.append([toBeRemoved[1], end])
+        return res
+```
+
+## [435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
+Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
+
+Example:\
+Input: intervals = [[1,2],[2,3],[3,4],[1,3]]\
+Output: 1\
+Explanation: [1,3] can be removed and the rest of the intervals are non-overlapping.
+
+This problem can be solved by DP or Greedy.
+
+For Greedy algorithm, we can solve the array by its end time, and for the overlapped intervals, we always keep the interval whose end time is the minimum to reserve more space for latter intervals.
+
+![](/img/leetcode/non-overlapping.jpeg)
+
+```python
+class Solution:
+    def eraseOverlappingIntervals(self, intervals: List[List[int]]) -> int:
+        intervals.sort(key = lambda x: x[1])
+
+        count = -1
+        curr_end = intervals[0][1]
+        for start, end in intervals:
+            // overlap
+            if start < curr_end:
+                count += 1
+            // new interval not overlap with the former one
+            else:
+                curr_end = end
+        
+        return count
+```
+
+## [452. Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/)
+
+There are ballons on the flat wall.
+points[i] = [$x_{start}, x_{end}$] who strech from $x_{start}$ to $x_{end}$. A ballon burst if an arrow shot between $x_{start}$ to $x_{end}$.
+How many arrows do we need to burst all ballons?
+
+Example:\
+Input: points = [[10,16],[2,8],[1,6],[7,12]]\
+Output: 2\
+Explanation: The balloons can be burst by 2 arrows:
+- Shoot an arrow at x = 6, bursting the balloons [2,8] and [1,6].
+- Shoot an arrow at x = 11, bursting the balloons [10,16] and [7,12].
+
+![](/img/leetcode/ballon-burst.jpeg)
+This problem is similar to the non-overlapping problem. We sort the points by its end, whenever we find a new overlap we increase count by 1.
+
+```python
+class Solution:
+    def findMinArrowShots(self, points: List[List[int]]) -> int:
+        points.sort(key = lambda x: x[1])
+        
+        count = 1
+        curr_end = points[0][1]
+        for start, end in points:
+            if start > curr_end:
+                count += 1
+                curr_end = end
+        
+        return count
+```
