@@ -1,5 +1,5 @@
 ---
-title: Meeting Room Related Problems
+title: SweepLine Related Problems
 layout: post
 mathjax: true
 tags: [algorithm, leetcode]
@@ -149,6 +149,24 @@ class Solution:
         return True
 ```
 
+We can also use diff array to resolve this problem.
+![](/img/leetcode/car-pool-diff.jpeg)
+```python
+class Solution:
+    def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
+        diff = [0] * 1001  # the problem constraints from and to are less than 1000
+        for change, from, to in trips:
+            diff[from] += change
+            diff[to] -= change # the passengers drop off at "to", so the minus change should happen on "to" time instead of to+1 time
+
+        prev = 0
+        for val in diff:
+            if prev + val > capacity:
+                return False
+            prev = prev + val
+    return True
+```
+
 ## [1272.Remove Intervals](https://leetcode.com/problems/remove-interval/)
 Given a sorted list of intervals and an interval toBeRemoved, return the set of real numbers with the interval toBeRemoved removed from intervals.
 
@@ -236,4 +254,89 @@ class Solution:
                 curr_end = end
         
         return count
+```
+
+## [1288. Remove Covered Intervals](https://leetcode.com/problems/remove-covered-intervals/)
+Given an array intervals where intervals[i] = [li, ri] represent the interval [li, ri), remove all intervals that are covered by another interval in the list.
+
+The interval [a, b) is covered by the interval [c, d) if and only if c <= a and b <= d.
+
+Return the number of remaining intervals.
+
+Example:
+Input: intervals = [[1,4],[3,6],[2,8]]\
+Output: 2\
+Explanation: Interval [3,6] is covered by [2,8], therefore it is removed.
+
+![](/img/leetcode/remove-covered-intervals1.jpeg)
+
+What we need to pay attention is the when sorting, we should sort the end descendingly incase we have intervals with same start.
+![](/img/leetcode/remove-covered-intervals2.jpeg)
+
+```python
+class Solution:
+    def removeCoveredIntervals(self, intervals: List[List[int]]) -> int:
+        # sort start ascendingly and end descendingly
+        intervals.sort(key = lambda x: (x[0], -x[1]))
+        
+        count = 1
+        curr_end = intervals[0][1]
+        for start, end in intervals:
+            if end > curr_end:
+                count += 1
+                curr_end = end
+        
+        return count
+```
+
+## [1109. Corporate Flight Bookings](https://leetcode.com/problems/corporate-flight-bookings/)
+There are n flighs labled from 1 to n.
+
+Given an array of bookings, bookings[i] = [first, last, seats] represents a booking for flights first through last(inclusive) with seats reserved for each flight in range.
+
+Return an array of length n, where answer[i] is the total number of seats reserved for flight[i]
+
+### Method1 SweepLine
+- Since the seats last is inclusive, the minus change should happen on last + 1.
+- If the time are the same, we can add them together than add it into the res list
+- The indices start from 1, so need to minus 1
+![](/img/leetcode/cooperate-flight.jpeg)
+
+```python
+class Solution:
+    def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
+        res = []
+        timings = []
+        for start, end, seats in bookings:
+            timings.append([start-1, seats]) # minus 1 because the bookings indices start from 1
+            timings.append([end, -seats]) 
+        timings.sort()
+
+        curr_sum = 0
+        curr = 0 
+        for i in range(n):
+            while curr < len(timings) and timings[curr][0] == i: # for all changes at time i
+                curr_sum += timings[curr][1]
+                curr += 1
+            res.append(curr_sum)
+        return res
+```
+
+### Method2 Diff Array
+It's easier if we use diff array to solve this problem, which is almost the same as the carpool problem.
+
+```python
+class Solution:
+    def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
+        res = []
+        diff = [0] * (n+1)
+        for from_, to, seats in bookings:
+            diff[from_-1] += seats
+            diff[to] -= seats # the change happens on to time
+
+        prev = 0
+        for i in range(n):
+            res.append(prev + diff[i])
+            prev = prev + diff[i]
+        return res
 ```

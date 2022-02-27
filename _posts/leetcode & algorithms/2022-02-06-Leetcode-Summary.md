@@ -34,6 +34,7 @@ tags: [algorithm, leetcode]
 | ProblemTitle                                                 | Content                                                                                                 | Status | notes                                                                                                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
 | [258. Add Digits](https://leetcode.com/problems/add-digits/) | Given an integer num, repeatedly add all its digits until the result has only one digit, and return it. | ✅      | $nums = d_0 + d_1*10 + ... + d_k * 10 ^ k$ <br />$ = (d_0 + d_1 + ... + d_k) + 9 * m$ <br /> $(d_0 + d_1 + ... + d_k) \% 9 = nums \% 9$ |
+|[50. Pow(x, n)](https://leetcode.com/problems/powx-n/)|[Solution](/2022/02/26/Math/#50-powx-n)|✅      |Divide and Conquer|
 
 ## String Problems
 
@@ -53,8 +54,18 @@ tags: [algorithm, leetcode]
 |[1094. Car Pooling](https://leetcode.com/problems/car-pooling/)|[Solution](/2022/02/17/meeting-rooms/#1094-car-pooling)||
 |[1272.Remove Intervals](https://leetcode.com/problems/remove-interval/)|[Solution](/2022/02/17/meeting-rooms/#1272remove-intervals)||
 |[435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)| [Sweep Line Solution](/2022/02/17/meeting-rooms/#435-non-overlapping-intervals) <br> [DP Solution]()||
-|[452. Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/)|[Solution](/2022/02/17/meeting-rooms/#452-minimum-number-of-arrows-to-burst-balloons)| Similar to the non-overlapping problem
+|[452. Minimum Number of Arrows to Burst Balloons](https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/)|[Solution](/2022/02/17/meeting-rooms/#452-minimum-number-of-arrows-to-burst-balloons)| Similar to the non-overlapping problem|
+|[1288. Remove Covered Intervals](https://leetcode.com/problems/remove-covered-intervals/)|[Solution]()
 
+## Diff Array
+
+diff[i] means nums[i] - nums[i-1] => nums[i] = nums[i-1] + diff[i]
+
+|Title| Solution|Notes|
+|--|--|--|
+|[370. Range Addition](https://leetcode.com/problems/range-addition/)|||
+|[1094. Car Pooling](https://leetcode.com/problems/car-pooling/)|[Solution](/2022/02/17/meeting-rooms/#1094-car-pooling)|Can also be solved via sweep line|
+|[1109. Coporate Flight Bookings](https://leetcode.com/problems/corporate-flight-bookings/)|[solution](/2022/02/17/sweep-line/#1109-corporate-flight-bookings)|Can also be solved via sweep line|
 
 
 ​
