@@ -35,6 +35,8 @@ tags: [algorithm, leetcode]
 | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------- |
 | [258. Add Digits](https://leetcode.com/problems/add-digits/) | Given an integer num, repeatedly add all its digits until the result has only one digit, and return it. | ✅      | $nums = d_0 + d_1*10 + ... + d_k * 10 ^ k$ <br />$ = (d_0 + d_1 + ... + d_k) + 9 * m$ <br /> $(d_0 + d_1 + ... + d_k) \% 9 = nums \% 9$ |
 |[50. Pow(x, n)](https://leetcode.com/problems/powx-n/)|[Solution](/2022/02/26/Math/#50-powx-n)|✅      |Divide and Conquer|
+|[191. Number of 1 Bits](https://leetcode.com/problems/number-of-1-bits/)|[Solution](/2022/02/26/Math/#191-number-of-1-bits)|similar problems: https://leetcode.com/problems/power-of-two/|Bit manipulation: n&(n-1)|
+|[190. Reverse Bits](https://leetcode.com/problems/reverse-bits/)|||Bit manipulation: n & 1 \| ans << 1|
 
 ## String Problems
 
@@ -66,6 +68,20 @@ diff[i] means nums[i] - nums[i-1] => nums[i] = nums[i-1] + diff[i]
 |[370. Range Addition](https://leetcode.com/problems/range-addition/)|||
 |[1094. Car Pooling](https://leetcode.com/problems/car-pooling/)|[Solution](/2022/02/17/meeting-rooms/#1094-car-pooling)|Can also be solved via sweep line|
 |[1109. Coporate Flight Bookings](https://leetcode.com/problems/corporate-flight-bookings/)|[solution](/2022/02/17/sweep-line/#1109-corporate-flight-bookings)|Can also be solved via sweep line|
+
+## DP
+|Title| Solution|Notes|
+|--|--|--|
+|[413. Arithmetic Slices](https://leetcode.com/problems/arithmetic-slices/)|||
+
+
+## Tree Problems
+### BST
+### Path
+- [437. Path Sum III](https://leetcode.com/problems/path-sum-iii/)  (prefix_sum)
+### Ancestor
+- [235. Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+- [236. Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)
 
 
 ​
