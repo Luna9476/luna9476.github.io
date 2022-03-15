@@ -16,7 +16,7 @@ tags: [algorithm, leetcode]
 | [16. 3 Sum Closest](https://leetcode.com/problems/3sum-closest/)                                                    |                                                                                                                 |                                                                    |
 | [18. 4 Sum](https://leetcode.com/problems/4sum/)                                                                    | ✅ [Solution](/2022/02/06/Two-Pointer/#n-sum)                                                                    |                                                                    |
 | [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)             |                                                                                                                 |                                                                    |
-| [26. Remove Duplicates From Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)       | Given a sorted array, remove the duplicates in the array such that each element appears only once.            ✅ |                                                                    |
+| [26. Remove Duplicates From Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)       | Given a sorted array, remove the duplicates in the array such that each element appears only once.            ✅ |                           similar problem <br /> [82. Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)    <br />   [83. Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/) <br /> [1836. Remove Duplicates From an Unsorted Linked List](https://leetcode.com/problems/remove-duplicates-from-an-unsorted-linked-list/)   |
 | [28. Implement strStr()](https://leetcode.com/problems/implement-strstr/)                                           | Return the index of the first occurrence of substring in a string                                             ✅ | **KMP** will be better                                             |
 | [42. Traping Rain Watter](https://leetcode.com/problems/trapping-rain-water/)                                       | ✅                                                                                                               | Left & right pointer, Need more practice                           |
 | [75. Sort Colors](https://leetcode.com/problems/sort-colors/)                                                       | ✅[Solution](/2022/02/06/Two-Pointer/#leetcode-75-sort-colors)                                                   | Left & Right pointer                                               |
@@ -28,6 +28,9 @@ tags: [algorithm, leetcode]
 | [Leetcode 905. Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity/)                           | ✅                                                                                                               | fast & slow pointer                                                |
 | [Leetcode 922. Sort Array By Parity II](https://leetcode.com/problems/sort-array-by-parity-ii/)                     | ✅                                                                                                               | even & odd pointer                                                 |
 | [Leetcode 977 Squares of a Sorted Array](#leetcode-977-squares-of-a-sorted-array)                                   | ✅ [Solution](/2022/02/06/Two-Pointer/#leetcode-977-squares-of-a-sorted-array)                                   | left & right pointer.                                              |
+
+- [532. K-diff Pairs in an Array](https://leetcode.com/problems/k-diff-pairs-in-an-array/) (fast and slow pointer)
+- 
 
 ## Math Related Problems
 
@@ -65,11 +68,12 @@ diff[i] means nums[i] - nums[i-1] => nums[i] = nums[i-1] + diff[i]
 
 |Title| Solution|Notes|
 |--|--|--|
-|[370. Range Addition](https://leetcode.com/problems/range-addition/)|||
-|[1094. Car Pooling](https://leetcode.com/problems/car-pooling/)|[Solution](/2022/02/17/meeting-rooms/#1094-car-pooling)|Can also be solved via sweep line|
-|[1109. Coporate Flight Bookings](https://leetcode.com/problems/corporate-flight-bookings/)|[solution](/2022/02/17/sweep-line/#1109-corporate-flight-bookings)|Can also be solved via sweep line|
+|[370. Range Addition](https://leetcode.com/problems/range-addition/)|| ✅  |
+|[1094. Car Pooling](https://leetcode.com/problems/car-pooling/)|[Solution](/2022/02/17/meeting-rooms/#1094-car-pooling)|✅ Can also be solved via sweep line|
+|[1109. Coporate Flight Bookings](https://leetcode.com/problems/corporate-flight-bookings/)|[solution](/2022/02/17/sweep-line/#1109-corporate-flight-bookings)|✅Can also be solved via sweep line|
 
 ## DP
+
 |Title| Solution|Notes|
 |--|--|--|
 |[413. Arithmetic Slices](https://leetcode.com/problems/arithmetic-slices/)|||
@@ -77,12 +81,50 @@ diff[i] means nums[i] - nums[i-1] => nums[i] = nums[i-1] + diff[i]
 
 ## Tree Problems
 ### BST
+- [938. Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/)
 ### Path
 - [437. Path Sum III](https://leetcode.com/problems/path-sum-iii/)  (prefix_sum)
+-  [124. Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)✅
+-  [129. Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/)✅
 ### Ancestor
 - [235. Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
-- [236. Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)
+- [236. Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) ✅
+- [1026. Maximum Difference Between Node and Ancestor](/2022/02/26/trees/#1026-maximum-difference-between-node-and-ancestor)
+- [1123. Lowest Common Ancestor of Deepest Leaves](/2022/02/26/trees/#1123-lowest-common-ancestor-of-deepest-leaves)
+- [1483. Kth Ancestor of a Tree Node](https://leetcode.com/problems/kth-ancestor-of-a-tree-node/) ❓
+
+## Binary Search
+- [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+- [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) (left = 0, right = len(nums) - 1 左闭右闭)
+- [34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) (left = -1, right = len(nums), 左开右开)
+- [35. Search Insert Position](https://leetcode.com/problems/search-insert-position/)(left = -1, right = len(nums), [0,left] < target, [right, len(nums)] > target)
+- [69. Sqrt(x)](https://leetcode.com/problems/sqrtx/)(左开右开, left is the largest which makes nums[i] * nums[i] < x)
+- [74. Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) 
+  -  i, j = mid // row_len, mid % row_len
+  -  Related probelm - [240. Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/) it's more complicated, and can be solved by divide and conquer.
+- [153. Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+- [154. Find Minimum in Rotated Sorted Array II](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/)
+- [540. Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array/) 
+  - case1: nums[mid] == nums[mid-1]  
+  - case2: nums[mid] == numd[mid+1]
+- [875. Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) 
+  - left, right = 1, max(piles)
+  - similar problem [1011. Capacity To Ship Packages Within D Days](https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/)
+- [981. Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) Design problem
+- [1539. Kth Missing Positive Number](https://leetcode.com/problems/kth-missing-positive-number/)
+- [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) O(nlogn) - can solved by [slow and fast pointer](/2022/02/15/Linked-List/#287-find-the-duplicate-number) with O(n) time.
+
+## DFS
+
+- [200. Number of Islands](https://leetcode.com/problems/number-of-islands/) - **high frequency** 
+- [207. Course Schedule](https://leetcode.com/problems/course-schedule/)
+  - construct a dict from prerequisites <pre, list[course]>
+  - go through all the courses, check whether there is a cyclic start from the course
+  - mark the visited course as True, so that next item we meet it no longer need to verify
 
 
+### Backtracking
+- [79. Word Search](https://leetcode.com/problems/word-search/)
+  - similar problem: [489. Robot Room Cleaner](https://leetcode.com/problems/robot-room-cleaner/)
 ​
  
