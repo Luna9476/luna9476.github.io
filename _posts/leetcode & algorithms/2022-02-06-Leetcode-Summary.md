@@ -82,16 +82,30 @@ diff[i] means nums[i] - nums[i-1] => nums[i] = nums[i-1] + diff[i]
 ## Tree Problems
 ### BST
 - [938. Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/)
+- [98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
+  - left_max < root.val < right_min
+  - similar problem: [333. Largest BST Subtree](https://leetcode.com/problems/largest-bst-subtree/)
 ### Path
 - [437. Path Sum III](https://leetcode.com/problems/path-sum-iii/)  (prefix_sum)
 -  [124. Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)✅
 -  [129. Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/)✅
+   -  [1022. Sum of Root To Leaf Binary Numbers](https://leetcode.com/problems/sum-of-root-to-leaf-binary-numbers/) - similar problem
 ### Ancestor
 - [235. Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
 - [236. Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) ✅
 - [1026. Maximum Difference Between Node and Ancestor](/2022/02/26/trees/#1026-maximum-difference-between-node-and-ancestor)
 - [1123. Lowest Common Ancestor of Deepest Leaves](/2022/02/26/trees/#1123-lowest-common-ancestor-of-deepest-leaves)
 - [1483. Kth Ancestor of a Tree Node](https://leetcode.com/problems/kth-ancestor-of-a-tree-node/) ❓
+
+### DFS
+- [298. Binary Tree Longest Consecutive Sequence](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence/)
+- [549. Binary Tree Longest Consecutive Sequence II](https://leetcode.com/problems/binary-tree-longest-consecutive-sequence-ii/)
+  - dfs return [inc, dec], inc means the longest length the array is increase
+- [543. Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)
+  - depth problem
+
+### Others
+- [617. Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees/)
 
 ## Binary Search
 - [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
@@ -115,16 +129,68 @@ diff[i] means nums[i] - nums[i-1] => nums[i] = nums[i-1] + diff[i]
 - [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) O(nlogn) - can solved by [slow and fast pointer](/2022/02/15/Linked-List/#287-find-the-duplicate-number) with O(n) time.
 
 ## DFS
+### Graph DFS
+- [133. Clone Graph](https://leetcode.com/problems/clone-graph/)
 
-- [200. Number of Islands](https://leetcode.com/problems/number-of-islands/) - **high frequency** 
 - [207. Course Schedule](https://leetcode.com/problems/course-schedule/)
-  - construct a dict from prerequisites <pre, list[course]>
-  - go through all the courses, check whether there is a cyclic start from the course
-  - mark the visited course as True, so that next item we meet it no longer need to verify
+  - construct a dict from prerequisites <course, List[pre]>
+  - go through courses, 
+    - return True if no prerequisites
+    - return False if visit already
+    - add course into visit set and dfs its children
+    - set pre to [] if the course can be completed to avoid duplicate dfsß
+    - remember to remove the course from visit 
+- [130. Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)
+  - dfs and mark boarder 'O's, other 'O's can be changed to 'X'
+
+
+
+### Islands
+- [200. Number of Islands](https://leetcode.com/problems/number-of-islands/) - **high frequency** 
+  - similar question [419. Battleships in a Board](https://leetcode.com/problems/battleships-in-a-board/)
+  - [solution](/2022/03/15/DFS/#)
+- [305. Number of Islands II](https://leetcode.com/problems/number-of-islands-ii/)
+  - union find
+-[694. Number of Distinct Islands](https://leetcode.com/problems/number-of-distinct-islands/)
+- [695. Max Area of Island](https://leetcode.com/problems/max-area-of-island/)
+- [1905. Count Sub Islands](https://leetcode.com/problems/count-sub-islands/)
+- [463. Island Perimeter](https://leetcode.com/problems/island-perimeter/)
+  - don't need DFS
+
+### Topological Sort
+- [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)
+- [269. Alien Dictionary](https://leetcode.com/problems/alien-dictionary/)
+- [444. Sequence Reconstruction](https://leetcode.com/problems/sequence-reconstruction/)
+- [310. Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/)
+  - It can be considered as a graph problem
+  - the roots should be in the longest path, and they are the center of the longest path
 
 
 ### Backtracking
 - [79. Word Search](https://leetcode.com/problems/word-search/)
   - similar problem: [489. Robot Room Cleaner](https://leetcode.com/problems/robot-room-cleaner/)
+- [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
+- [78. Subsets](https://leetcode.com/problems/subsets/)
+  - [90. Subsets II](https://leetcode.com/problems/subsets-ii/)
+- [46. Permutations](https://leetcode.com/problems/permutations/)
+  - [47. Permutations II](https://leetcode.com/problems/permutations-ii/)
+- [77. Combinations](https://leetcode.com/problems/combinations/)
+  - [39. Combination Sum](https://leetcode.com/problems/combination-sum/)
+
+
+## Stack
+
+- [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+  
+### Monotonic Stack (单调栈)
+- [84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) //TODO
+- [456. 132 Pattern](https://leetcode.com/problems/132-pattern/) //TODO
+- [496. Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/)
+- [739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)
+
+
+## Greedy
+- [881. Boats to Save People](https://leetcode.com/problems/boats-to-save-people/)
+
 ​
  
