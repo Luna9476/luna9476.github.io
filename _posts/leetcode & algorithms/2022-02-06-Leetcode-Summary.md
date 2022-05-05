@@ -5,7 +5,16 @@ layout: post
 mathjax: true
 tags: [algorithm, leetcode]
 ---
-
+## DP
+- [70. Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
+- [746. Min Cost Climbing Stairs](https://leetcode.com/problems/min-cost-climbing-stairs/)
+- [1137. N-th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/)
+  - nums[i] = nums[i-1] + nums[i-2] + nums[i-3]
+- [338. Counting Bits](https://leetcode.com/problems/counting-bits/)
+  - p(x+b) = p(x) + 1, b = 2^m
+- [118. Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/)
+  - res = [[1] * i for i in range(1, numRows + 1)] 
+  - res[i][j] = res[i-1][j-1] + res[i-1][j]
 ## Two Pointers
 
 | Problem Title                                                                                                       | Status                                                                                                          | notes                                                              |
@@ -18,7 +27,7 @@ tags: [algorithm, leetcode]
 | [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)             |                                                                                                                 |                                                                    |
 | [26. Remove Duplicates From Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)       | Given a sorted array, remove the duplicates in the array such that each element appears only once.            ✅ |                           similar problem <br /> [82. Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)    <br />   [83. Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/) <br /> [1836. Remove Duplicates From an Unsorted Linked List](https://leetcode.com/problems/remove-duplicates-from-an-unsorted-linked-list/)   |
 | [28. Implement strStr()](https://leetcode.com/problems/implement-strstr/)                                           | Return the index of the first occurrence of substring in a string                                             ✅ | **KMP** will be better                                             |
-| [42. Traping Rain Watter](https://leetcode.com/problems/trapping-rain-water/)                                       | ✅                                                                                                               | Left & right pointer, Need more practice                           |
+| [42. Traping Rain Watter](https://leetcode.com/problems/trapping-rain-water/)                                       | ✅                                                                                                               | Left & right pointer, Need more practice <br>             [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/)            |
 | [75. Sort Colors](https://leetcode.com/problems/sort-colors/)                                                       | ✅[Solution](/2022/02/06/Two-Pointer/#leetcode-75-sort-colors)                                                   | Left & Right pointer                                               |
 | [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) | Given a sorted array, remove the duplicates in the array such that each unique element appears at most twice  ✅ |
 | [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)                                            | ✅ Useful Python string methods: s.lower() s.isalpha() s.isnumeric() s.isalnum()                                 | Left & right pointer.                                              |
@@ -30,7 +39,9 @@ tags: [algorithm, leetcode]
 | [Leetcode 977 Squares of a Sorted Array](#leetcode-977-squares-of-a-sorted-array)                                   | ✅ [Solution](/2022/02/06/Two-Pointer/#leetcode-977-squares-of-a-sorted-array)                                   | left & right pointer.                                              |
 
 - [532. K-diff Pairs in an Array](https://leetcode.com/problems/k-diff-pairs-in-an-array/) (fast and slow pointer)
-- 
+  
+### Linked List
+- [1721. Swapping Nodes in a Linked List](https://leetcode.com/problems/swapping-nodes-in-a-linked-list/)
 
 ## Math Related Problems
 
@@ -54,7 +65,7 @@ tags: [algorithm, leetcode]
 | ----- | -------- | ----- |
 |[252. Meeting Rooms](https://leetcode.com/problems/meeting-rooms/)|[Solution](/2022/02/17/meeting-rooms/#252-meeting-rooms)||
 |[253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)|[Solution](/2022/02/17/meeting-rooms/#253-meeting-rooms-ii)||
-|[56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)|[Solution](/2022/02/17/meeting-rooms/#56-merge-intervals)||
+|[56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)|[Solution](/2022/02/17/sweep-line/#56-merge-intervals)||
 |[57. Insert Interval](https://leetcode.com/problems/insert-interval/)|[Solution](/2022/02/17/meeting-rooms/#57-insert-interval)||
 |[1094. Car Pooling](https://leetcode.com/problems/car-pooling/)|[Solution](/2022/02/17/meeting-rooms/#1094-car-pooling)||
 |[1272.Remove Intervals](https://leetcode.com/problems/remove-interval/)|[Solution](/2022/02/17/meeting-rooms/#1272remove-intervals)||
@@ -176,7 +187,8 @@ diff[i] means nums[i] - nums[i-1] => nums[i] = nums[i-1] + diff[i]
   - [47. Permutations II](https://leetcode.com/problems/permutations-ii/)
 - [77. Combinations](https://leetcode.com/problems/combinations/)
   - [39. Combination Sum](https://leetcode.com/problems/combination-sum/)
-
+- [784. Letter Case Permutation](https://leetcode.com/problems/letter-case-permutation/)
+- [1087. Brace Expansion](https://leetcode.com/problems/brace-expansion/)
 
 ## Stack
 
@@ -187,10 +199,19 @@ diff[i] means nums[i] - nums[i-1] => nums[i] = nums[i-1] + diff[i]
 - [456. 132 Pattern](https://leetcode.com/problems/132-pattern/) //TODO
 - [496. Next Greater Element I](https://leetcode.com/problems/next-greater-element-i/)
 - [739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)
-
+- [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
+  - maintain a decreasing deque
 
 ## Greedy
 - [881. Boats to Save People](https://leetcode.com/problems/boats-to-save-people/)
+- [2224. Minimum Number of Operations to Convert Time](https://leetcode.com/problems/minimum-number-of-operations-to-convert-time/)
+
+## Heap
+- [347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
+  - python heap: heapq.nlargest(k, count.keys(), key=count.get)
+
+## Some Tricks
+- [31. Next Permutation](https://leetcode.com/problems/next-permutation/)
 
 ​
  
